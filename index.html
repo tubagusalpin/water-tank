@@ -21,31 +21,34 @@
     <p id="levelText">50%</p>
   </div>
 
-  <!-- GAUGE -->
+  <!-- ATAS (PARAMETER) -->
   <div class="card">
     <h4>Temperature</h4>
-    <canvas id="gaugeTemp"></canvas>
+    <div class="gaugeBox">
+      <canvas id="gaugeTemp"></canvas>
+      <span id="tempText">0°C</span>
+    </div>
   </div>
 
   <div class="card">
     <h4>Humidity</h4>
-    <canvas id="gaugeHum"></canvas>
+    <div class="gaugeBox">
+      <canvas id="gaugeHum"></canvas>
+      <span id="humText">0%</span>
+    </div>
   </div>
 
-  <!-- PUMP -->
   <div class="card">
     <h4>Pump</h4>
     <div id="fan"></div>
     <p id="pumpStatus">OFF</p>
   </div>
 
-  <!-- STATUS -->
   <div class="card">
     <h4>Status</h4>
     <div id="alarm">NORMAL</div>
   </div>
 
-  <!-- PARAMETER TAMBAHAN -->
   <div class="card">
     <h4>Volume</h4>
     <p id="volume">0 L</p>
@@ -56,24 +59,21 @@
     <p id="distance">0 cm</p>
   </div>
 
-  <!-- 3 GRAFIK -->
-  <div class="card chart-card">
+  <!-- BAWAH (GRAFIK BESAR) -->
+  <div class="card chart-big">
     <h4>Water Level</h4>
     <canvas id="chartLevel"></canvas>
   </div>
 
-  <div class="card chart-card">
+  <div class="card chart-big">
     <h4>Temperature</h4>
     <canvas id="chartTemp"></canvas>
   </div>
 
-  <div class="card chart-card">
+  <div class="card chart-big">
     <h4>Humidity</h4>
     <canvas id="chartHum"></canvas>
   </div>
 
 </div>
 
-<script src="script.js"></script>
-</body>
-</html>
