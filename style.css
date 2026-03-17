@@ -66,8 +66,8 @@ h2 {
 
 /* GAUGE FIX */
 canvas {
-  max-width: 100% !important;
-  max-height: 100px !important;
+  max-width: 60% !important;
+  max-height: 60px !important;
   display: block;
   margin: auto;
 }
@@ -102,5 +102,5 @@ canvas {
 /* 3 GRAFIK */
 .chart-card {
   grid-column: span 1;
-  height: 180px;
+  height: 230px;
 }
