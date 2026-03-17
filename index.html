@@ -1,5 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SCADA Tank</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h2>SCADA MONITORING TANGKI AIR</h2>
+
 <div class="dashboard">
 
+  <!-- TANK -->
   <div class="card tank-card">
     <h4>Water Level</h4>
     <div class="tank">
@@ -8,6 +21,7 @@
     <p id="levelText">50%</p>
   </div>
 
+  <!-- GAUGE -->
   <div class="card">
     <h4>Temperature</h4>
     <canvas id="gaugeTemp"></canvas>
@@ -18,19 +32,48 @@
     <canvas id="gaugeHum"></canvas>
   </div>
 
+  <!-- PUMP -->
   <div class="card">
     <h4>Pump</h4>
     <div id="fan"></div>
     <p id="pumpStatus">OFF</p>
   </div>
 
+  <!-- STATUS -->
   <div class="card">
     <h4>Status</h4>
     <div id="alarm">NORMAL</div>
   </div>
 
+  <!-- PARAMETER TAMBAHAN -->
+  <div class="card">
+    <h4>Volume</h4>
+    <p id="volume">0 L</p>
+  </div>
+
+  <div class="card">
+    <h4>Distance</h4>
+    <p id="distance">0 cm</p>
+  </div>
+
+  <!-- 3 GRAFIK -->
   <div class="card chart-card">
-    <canvas id="chart"></canvas>
+    <h4>Water Level</h4>
+    <canvas id="chartLevel"></canvas>
+  </div>
+
+  <div class="card chart-card">
+    <h4>Temperature</h4>
+    <canvas id="chartTemp"></canvas>
+  </div>
+
+  <div class="card chart-card">
+    <h4>Humidity</h4>
+    <canvas id="chartHum"></canvas>
   </div>
 
 </div>
+
+<script src="script.js"></script>
+</body>
+</html>
