@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SCADA Monitoring Tangki Air</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -13,58 +14,54 @@
 
 <div class="container">
 
-    <!-- ROW ATAS (5 ITEM SESUAI GAMBAR) -->
-
-    <div class="card">
+    <!-- WATER LEVEL BESAR -->
+    <div class="card water-card">
         <h3>Water Level</h3>
         <div class="tank">
             <div class="water" id="water"></div>
         </div>
-        <p id="levelText">60%</p>
+        <p id="levelText">50%</p>
     </div>
 
+    <!-- DATA ATAS -->
     <div class="card">
         <h3>Temperature</h3>
-        <p id="temp">30°C</p>
-        <div class="status-bar"></div>
+        <canvas id="tempGauge"></canvas>
     </div>
 
     <div class="card">
         <h3>Humidity</h3>
-        <p id="hum">70%</p>
-        <div class="status-bar"></div>
+        <canvas id="humGauge"></canvas>
     </div>
 
     <div class="card">
         <h3>Pump</h3>
-        <div class="circle"></div>
+        <div id="pumpIndicator" class="indicator off"></div>
+        <p id="pumpText">OFF</p>
     </div>
 
     <div class="card">
-        <h3>Status Pump</h3>
-        <div class="pump-box">
-            <button class="pump-btn" id="pumpBtn" onclick="togglePump()">Status</button>
-        </div>
+        <h3>Status</h3>
+        <span class="badge" id="status">NORMAL</span>
     </div>
 
-    <!-- ROW BAWAH (3 GRAFIK) -->
-
-    <div class="card chart-card">
-        <h3>Water Level</h3>
-        <div class="chart"></div>
+    <div class="card">
+        <h3>Volume</h3>
+        <p id="volume">0 L</p>
     </div>
 
-    <div class="card chart-card">
-        <h3>Temperature</h3>
-        <div class="chart"></div>
+    <div class="card">
+        <h3>Distance</h3>
+        <p id="distance">0 cm</p>
     </div>
 
-    <div class="card chart-card">
-        <h3>Humidity</h3>
-        <div class="chart"></div>
-    </div>
+    <!-- CHART -->
+    <div class="card chart"><canvas id="chartLevel"></canvas></div>
+    <div class="card chart"><canvas id="chartTemp"></canvas></div>
+    <div class="card chart"><canvas id="chartHum"></canvas></div>
 
 </div>
 
 <script src="script.js"></script>
+</body>
 </html>
