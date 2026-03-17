@@ -3,41 +3,54 @@
 <head>
   <title>SCADA Tank</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
 <h2>SCADA MONITORING TANGKI AIR</h2>
 
-<div class="top">
+<div class="dashboard">
 
-  <canvas id="gaugeTemp"></canvas>
-  <canvas id="gaugeHum"></canvas>
-
-</div>
-
-<div class="middle">
-
-  <!-- TANK -->
-  <div class="tank">
-    <div id="water"></div>
+  <!-- LEFT (TANK) -->
+  <div class="card tank-card">
+    <h3>Water Level</h3>
+    <div class="tank">
+      <div id="water"></div>
+    </div>
+    <p id="levelText">50%</p>
   </div>
 
-  <!-- POMPA -->
-  <div class="pump">
+  <!-- GAUGE -->
+  <div class="card">
+    <h3>Temperature</h3>
+    <canvas id="gaugeTemp"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Humidity</h3>
+    <canvas id="gaugeHum"></canvas>
+  </div>
+
+  <!-- PUMP -->
+  <div class="card">
+    <h3>Pump</h3>
     <div id="fan"></div>
     <p id="pumpStatus">OFF</p>
   </div>
 
+  <!-- ALARM -->
+  <div class="card">
+    <h3>Status</h3>
+    <div id="alarm">NORMAL</div>
+  </div>
+
+  <!-- CHART FULL WIDTH -->
+  <div class="card chart-card">
+    <canvas id="chart"></canvas>
+  </div>
+
 </div>
-
-<!-- ALARM -->
-<div id="alarm">NORMAL</div>
-
-<!-- GRAFIK -->
-<canvas id="chart"></canvas>
 
 <script src="script.js"></script>
 </body>
