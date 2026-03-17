@@ -10,43 +10,47 @@ let chart = new Chart(ctx, {
   data: {
     labels: [],
     datasets: [
-      { label: "Level", data: [] },
-      { label: "Suhu", data: [] },
-      { label: "Hum", data: [] }
+      { label: "Level", data: [], borderColor: "cyan" },
+      { label: "Suhu", data: [], borderColor: "orange" },
+      { label: "Hum", data: [], borderColor: "lime" }
     ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false
   }
 });
 
-// GAUGE
-function drawGauge(id, value, max) {
-  let ctx = document.getElementById(id).getContext("2d");
-  new Chart(ctx, {
-    type: "doughnut",
-    data: {
-      datasets: [{
-        data: [value, max - value]
-      }]
-    }
-  });
-}
+// GAUGE INIT
+let gaugeTemp = new Chart(document.getElementById("gaugeTemp"), {
+  type: "doughnut",
+  data: { datasets: [{ data: [0, 50] }] }
+});
+
+let gaugeHum = new Chart(document.getElementById("gaugeHum"), {
+  type: "doughnut",
+  data: { datasets: [{ data: [0, 100] }] }
+});
 
 // UPDATE UI
 function updateUI() {
-  document.getElementById("water").style.height = level + "%";
 
-  // Pompa
+  document.getElementById("water").style.height = level + "%";
+  document.getElementById("levelText").innerText = Math.round(level) + "%";
+
+  // PUMP LOGIC
   if (level < 30) pump = 1;
   if (level > 80) pump = 0;
 
   if (pump) {
-    document.getElementById("fan").classList.add("spin");
-    document.getElementById("pumpStatus").innerText = "ON";
+    fan.classList.add("spin");
+    pumpStatus.innerText = "ON";
   } else {
-    document.getElementById("fan").classList.remove("spin");
-    document.getElementById("pumpStatus").innerText = "OFF";
+    fan.classList.remove("spin");
+    pumpStatus.innerText = "OFF";
   }
 
-  // Alarm
+  // ALARM
   let alarm = document.getElementById("alarm");
   if (level < 20) {
     alarm.innerText = "AIR HAMPIR HABIS!";
@@ -56,15 +60,25 @@ function updateUI() {
     alarm.classList.remove("danger");
   }
 
-  // Update chart
+  // UPDATE CHART
   chart.data.labels.push("");
   chart.data.datasets[0].data.push(level);
   chart.data.datasets[1].data.push(suhu);
   chart.data.datasets[2].data.push(hum);
+
+  if (chart.data.labels.length > 20) {
+    chart.data.labels.shift();
+    chart.data.datasets.forEach(d => d.data.shift());
+  }
+
   chart.update();
 
-  drawGauge("gaugeTemp", suhu, 50);
-  drawGauge("gaugeHum", hum, 100);
+  // UPDATE GAUGE (tidak recreate!)
+  gaugeTemp.data.datasets[0].data = [suhu, 50 - suhu];
+  gaugeHum.data.datasets[0].data = [hum, 100 - hum];
+
+  gaugeTemp.update();
+  gaugeHum.update();
 }
 
 // SIMULASI
@@ -73,8 +87,7 @@ setInterval(() => {
   suhu += Math.random()*2 - 1;
   hum += Math.random()*4 - 2;
 
-  if (level < 0) level = 0;
-  if (level > 100) level = 100;
+  level = Math.max(0, Math.min(100, level));
 
   updateUI();
 }, 2000);
