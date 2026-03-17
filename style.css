@@ -1,37 +1,56 @@
-/* ================= CSS (style.css) ================= */
-    font-size: 14px;
+/* ================= style.css ================= */
 }
 
-/* WATER */
-.water-card {
-    grid-row: 1 / 4;
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
+    padding: 15px;
 }
 
-.tank {
-    width: 80px;
-    height: 180px;
-    border: 2px solid #cbd5f5;
-    border-radius: 15px;
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.big {
+    grid-column: span 2;
+}
+
+.small {
+    grid-column: span 1;
+}
+
+.wide {
+    grid-column: span 3;
+}
+
+.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 10px solid #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: auto;
-    position: relative;
-    overflow: hidden;
+    font-size: 20px;
 }
 
-.water {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: linear-gradient(to top, #0ea5e9, #38bdf8);
-    transition: 0.5s;
-}
-
-.badge {
+.vertical-bar {
+    width: 10px;
+    height: 100px;
     background: green;
-    padding: 4px 10px;
-    border-radius: 6px;
+    margin: auto;
+}
+
+.vertical-bar.red {
+    background: red;
 }
 
 .chart canvas {
     width: 100% !important;
-    height: 100% !important;
+    height: 200px !important;
 }
