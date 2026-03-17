@@ -70,13 +70,14 @@ let chartLevel = makeChart("chartLevel", "cyan");
 let chartTemp = makeChart("chartTemp", "orange");
 let chartHum = makeChart("chartHum", "lime");
 
-/* UPDATE */
+/* UPDATE UI */
 function updateUI() {
 
+  // WATER
   document.getElementById("water").style.height = level + "%";
   document.getElementById("levelText").innerText = Math.round(level) + "%";
 
-  // LOGIKA POMPA
+  // POMPA LOGIC (INI YANG KAMU MINTA)
   if (level < 30) pump = 1;
   if (level > 80) pump = 0;
 
@@ -98,14 +99,17 @@ function updateUI() {
     alarm.classList.remove("danger");
   }
 
+  // TEXT
   document.getElementById("tempText").innerText = Math.round(suhu) + "°C";
   document.getElementById("humText").innerText = Math.round(hum) + "%";
 
+  // GAUGE UPDATE
   gaugeTemp.data.datasets[0].data = [suhu, 100 - suhu];
   gaugeHum.data.datasets[0].data = [hum, 100 - hum];
   gaugeTemp.update();
   gaugeHum.update();
 
+  // CHART UPDATE
   [chartLevel, chartTemp, chartHum].forEach(c => {
     c.data.labels.push("");
     if (c.data.labels.length > 15) c.data.labels.shift();
