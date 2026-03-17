@@ -9,11 +9,11 @@ h2 {
   text-align: center;
 }
 
-/* GRID STABIL (TIDAK DIUBAH DRAMATIS) */
+/* GRID FIX (INI YANG BIKIN RAPI & GA NGACAK) */
 .dashboard {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  grid-template-rows: 140px 140px 1fr;
+  grid-template-rows: 150px 150px 1fr;
   gap: 10px;
   height: calc(100vh - 60px);
   padding: 10px;
@@ -27,11 +27,57 @@ h2 {
   text-align: center;
 }
 
-/* TANK */
+/* POSISI FIX (INI YANG PENTING BANGET) */
+
+/* TANK KIRI BESAR */
 .tank-card {
-  grid-row: span 3;
+  grid-column: 1;
+  grid-row: 1 / 4;
 }
 
+/* TEMPERATURE */
+.dashboard .card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* HUMIDITY */
+.dashboard .card:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* PUMP */
+.dashboard .card:nth-child(4) {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+/* STATUS */
+.dashboard .card:nth-child(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* CHART LEVEL */
+.dashboard .chart:nth-child(6) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* CHART TEMP */
+.dashboard .chart:nth-child(7) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+/* CHART HUM */
+.dashboard .chart:nth-child(8) {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+/* TANK */
 .tank {
   width: 120px;
   height: 260px;
@@ -52,11 +98,7 @@ h2 {
   transition: 0.5s;
 }
 
-/* GAUGE BESAR + CENTER */
-.gauge-big {
-  height: 140px;
-}
-
+/* GAUGE */
 .gaugeBox {
   display: flex;
   justify-content: center;
@@ -72,11 +114,11 @@ h2 {
 
 .gaugeBox span {
   position: absolute;
-  font-size: 16px;
   font-weight: bold;
+  font-size: 16px;
 }
 
-/* POMPA (KIPAS MUTER JELAS) */
+/* POMPA */
 #fan {
   width: 60px;
   height: 60px;
@@ -108,7 +150,7 @@ h2 {
   background: red !important;
 }
 
-/* CHART FULL (NO SPACE KOSONG) */
+/* CHART FULL */
 .chart {
   height: 100%;
 }
