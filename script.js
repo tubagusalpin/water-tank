@@ -6,36 +6,63 @@ let pump = 0;
 let volume = 0;
 let distance = 0;
 
-// GAUGE
+// GAUGE TEMP
 let gaugeTemp = new Chart(document.getElementById("gaugeTemp"), {
   type: "doughnut",
-  data: { datasets: [{ data: [0, 50] }] }
+  data: {
+    datasets: [{
+      data: [0, 50],
+      backgroundColor: ["#00c6ff", "#333"],
+      borderWidth: 0
+    }]
+  },
+  options: { cutout: "70%" }
 });
 
+// GAUGE HUM
 let gaugeHum = new Chart(document.getElementById("gaugeHum"), {
   type: "doughnut",
-  data: { datasets: [{ data: [0, 100] }] }
+  data: {
+    datasets: [{
+      data: [0, 100],
+      backgroundColor: ["#00ff88", "#333"],
+      borderWidth: 0
+    }]
+  },
+  options: { cutout: "70%" }
 });
 
 // CHART LEVEL
 let chartLevel = new Chart(document.getElementById("chartLevel"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Level", data: [], borderColor: "cyan" }] },
-  options: { responsive: true, maintainAspectRatio: false }
+  data: { labels: [], datasets: [{ data: [], borderColor: "cyan" }] },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y: { min: 0, max: 100 } }
+  }
 });
 
 // CHART TEMP
 let chartTemp = new Chart(document.getElementById("chartTemp"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Temp", data: [], borderColor: "orange" }] },
-  options: { responsive: true, maintainAspectRatio: false }
+  data: { labels: [], datasets: [{ data: [], borderColor: "orange" }] },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y: { min: 0, max: 100 } }
+  }
 });
 
 // CHART HUM
 let chartHum = new Chart(document.getElementById("chartHum"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Hum", data: [], borderColor: "lime" }] },
-  options: { responsive: true, maintainAspectRatio: false }
+  data: { labels: [], datasets: [{ data: [], borderColor: "lime" }] },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: { y: { min: 0, max: 100 } }
+  }
 });
 
 // UPDATE UI
@@ -44,7 +71,7 @@ function updateUI() {
   document.getElementById("water").style.height = level + "%";
   document.getElementById("levelText").innerText = Math.round(level) + "%";
 
-  // LOGIC PUMP
+  // pump
   if (level < 30) pump = 1;
   if (level > 80) pump = 0;
 
@@ -56,7 +83,7 @@ function updateUI() {
     pumpStatus.innerText = "OFF";
   }
 
-  // ALARM
+  // alarm
   let alarm = document.getElementById("alarm");
   if (level < 20) {
     alarm.innerText = "AIR HAMPIR HABIS!";
@@ -66,14 +93,18 @@ function updateUI() {
     alarm.classList.remove("danger");
   }
 
-  // PARAMETER TAMBAHAN
+  // parameter tambahan
   volume = Math.round(level * 20);
   distance = Math.round(100 - level);
 
   document.getElementById("volume").innerText = volume + " L";
   document.getElementById("distance").innerText = distance + " cm";
 
-  // UPDATE CHART
+  // gauge text
+  document.getElementById("tempText").innerText = Math.round(suhu) + "°C";
+  document.getElementById("humText").innerText = Math.round(hum) + "%";
+
+  // update chart
   chartLevel.data.labels.push("");
   chartTemp.data.labels.push("");
   chartHum.data.labels.push("");
@@ -96,7 +127,7 @@ function updateUI() {
   chartTemp.update();
   chartHum.update();
 
-  // UPDATE GAUGE
+  // update gauge
   gaugeTemp.data.datasets[0].data = [suhu, 50 - suhu];
   gaugeHum.data.datasets[0].data = [hum, 100 - hum];
 
