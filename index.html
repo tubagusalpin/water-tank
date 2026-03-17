@@ -23,39 +23,16 @@
         <p id="levelText">50%</p>
     </div>
 
-    <!-- DATA ATAS -->
-    <div class="card">
-        <h3>Temperature</h3>
-        <canvas id="tempGauge"></canvas>
-    </div>
+    <!-- ATAS KANAN -->
+    <div class="card small"><h3>Temperature</h3><p id="temp">0°C</p></div>
+    <div class="card small"><h3>Humidity</h3><p id="hum">0%</p></div>
+    <div class="card small"><h3>Pump</h3><p id="pumpText">OFF</p></div>
 
-    <div class="card">
-        <h3>Humidity</h3>
-        <canvas id="humGauge"></canvas>
-    </div>
+    <div class="card small"><h3>Status</h3><span class="badge" id="status">NORMAL</span></div>
+    <div class="card small"><h3>Volume</h3><p id="volume">0 L</p></div>
+    <div class="card small"><h3>Distance</h3><p id="distance">0 cm</p></div>
 
-    <div class="card">
-        <h3>Pump</h3>
-        <div id="pumpIndicator" class="indicator off"></div>
-        <p id="pumpText">OFF</p>
-    </div>
-
-    <div class="card">
-        <h3>Status</h3>
-        <span class="badge" id="status">NORMAL</span>
-    </div>
-
-    <div class="card">
-        <h3>Volume</h3>
-        <p id="volume">0 L</p>
-    </div>
-
-    <div class="card">
-        <h3>Distance</h3>
-        <p id="distance">0 cm</p>
-    </div>
-
-    <!-- CHART -->
+    <!-- BAWAH (GRAFIK FULL ISI) -->
     <div class="card chart"><canvas id="chartLevel"></canvas></div>
     <div class="card chart"><canvas id="chartTemp"></canvas></div>
     <div class="card chart"><canvas id="chartHum"></canvas></div>
