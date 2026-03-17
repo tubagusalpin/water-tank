@@ -9,11 +9,11 @@ h2 {
   text-align: center;
 }
 
-/* GRID FIX FULL */
+/* GRID STABIL (TIDAK DIUBAH DRAMATIS) */
 .dashboard {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  grid-template-rows: 150px 150px 1fr;
+  grid-template-rows: 140px 140px 1fr;
   gap: 10px;
   height: calc(100vh - 60px);
   padding: 10px;
@@ -52,9 +52,9 @@ h2 {
   transition: 0.5s;
 }
 
-/* GAUGE BESAR */
+/* GAUGE BESAR + CENTER */
 .gauge-big {
-  height: 150px;
+  height: 140px;
 }
 
 .gaugeBox {
@@ -66,8 +66,8 @@ h2 {
 }
 
 .gaugeBox canvas {
-  width: 120px !important;
-  height: 120px !important;
+  width: 110px !important;
+  height: 110px !important;
 }
 
 .gaugeBox span {
@@ -76,26 +76,21 @@ h2 {
   font-weight: bold;
 }
 
-/* POMPA ARAH MATA ANGIN */
+/* POMPA (KIPAS MUTER JELAS) */
 #fan {
-  width: 70px;
-  height: 70px;
-  margin: auto;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: conic-gradient(
-    #fff 0deg 45deg,
-    transparent 45deg 90deg,
-    #fff 90deg 135deg,
-    transparent 135deg 180deg,
-    #fff 180deg 225deg,
-    transparent 225deg 270deg,
-    #fff 270deg 315deg,
-    transparent 315deg 360deg
+    #ccc 0deg 120deg,
+    #555 120deg 240deg,
+    #ccc 240deg 360deg
   );
+  margin: auto;
 }
 
 .spin {
-  animation: spin 0.5s linear infinite;
+  animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -113,7 +108,7 @@ h2 {
   background: red !important;
 }
 
-/* CHART FULL KE BAWAH */
+/* CHART FULL (NO SPACE KOSONG) */
 .chart {
   height: 100%;
 }
