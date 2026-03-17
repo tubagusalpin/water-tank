@@ -32,8 +32,6 @@ h2 {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* TANK */
@@ -103,4 +101,29 @@ canvas {
 .chart-card {
   grid-column: span 1;
   height: 230px;
+}
+
+
+/* ===== FIX GAUGE CENTER ===== */
+
+/* Card jangan pakai align-items center */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Judul tetap normal */
+.card h4 {
+  text-align: center;
+  margin: 5px 0;
+}
+
+/* Canvas (gauge) CENTER */
+.card canvas {
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
