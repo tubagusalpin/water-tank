@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SCADA Tank</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>SCADA MONITORING TANGKI AIR</h2>
+
+<div class="top">
+
+  <canvas id="gaugeTemp"></canvas>
+  <canvas id="gaugeHum"></canvas>
+
+</div>
+
+<div class="middle">
+
+  <!-- TANK -->
+  <div class="tank">
+    <div id="water"></div>
+  </div>
+
+  <!-- POMPA -->
+  <div class="pump">
+    <div id="fan"></div>
+    <p id="pumpStatus">OFF</p>
+  </div>
+
+</div>
+
+<!-- ALARM -->
+<div id="alarm">NORMAL</div>
+
+<!-- GRAFIK -->
+<canvas id="chart"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
