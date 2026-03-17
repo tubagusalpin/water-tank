@@ -1,21 +1,20 @@
 // ================= JS (script.js) =================
-let levelData = [];
-let tempData = [];
-let humData = [];
-
 const chartLevel = new Chart(document.getElementById("chartLevel"), {
     type: 'line',
-    data: { labels: [], datasets: [{ label: 'Level', data: [] }] }
+    data: { labels: [], datasets: [{ data: [] }] },
+    options: { responsive: true, maintainAspectRatio: false }
 });
 
 const chartTemp = new Chart(document.getElementById("chartTemp"), {
     type: 'line',
-    data: { labels: [], datasets: [{ label: 'Temp', data: [] }] }
+    data: { labels: [], datasets: [{ data: [] }] },
+    options: { responsive: true, maintainAspectRatio: false }
 });
 
 const chartHum = new Chart(document.getElementById("chartHum"), {
     type: 'line',
-    data: { labels: [], datasets: [{ label: 'Hum', data: [] }] }
+    data: { labels: [], datasets: [{ data: [] }] },
+    options: { responsive: true, maintainAspectRatio: false }
 });
 
 setInterval(() => {
@@ -25,15 +24,14 @@ setInterval(() => {
 
     document.getElementById("water").style.height = level + "%";
     document.getElementById("levelText").innerText = level + "%";
+    document.getElementById("temp").innerText = temp + "°C";
+    document.getElementById("hum").innerText = hum + "%";
     document.getElementById("volume").innerText = level * 10 + " L";
     document.getElementById("distance").innerText = (100 - level) + " cm";
 
-    // Pump logic
     let pumpOn = level < 30;
     document.getElementById("pumpText").innerText = pumpOn ? "ON" : "OFF";
-    document.getElementById("pumpIndicator").className = pumpOn ? "indicator on" : "indicator off";
 
-    // update chart
     let time = new Date().toLocaleTimeString();
 
     chartLevel.data.labels.push(time);
