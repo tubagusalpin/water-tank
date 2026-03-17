@@ -3,86 +3,54 @@ body {
   background: #0f1115;
   color: white;
   font-family: Arial;
+  overflow: hidden; /* KUNCI BIAR GA SCROLL */
 }
 
 h2 {
   text-align: center;
+  margin: 5px;
 }
 
-/* GRID FIX (INI YANG BIKIN RAPI & GA NGACAK) */
+/* GRID FULL 1 LAYAR */
 .dashboard {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  grid-template-rows: 150px 150px 1fr;
-  gap: 10px;
-  height: calc(100vh - 60px);
-  padding: 10px;
+  grid-template-rows: 120px 120px auto;
+  gap: 8px;
+  height: calc(100vh - 40px);
+  padding: 8px;
 }
 
 /* CARD */
 .card {
   background: #1a1d23;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
   text-align: center;
+  overflow: hidden;
 }
 
-/* POSISI FIX (INI YANG PENTING BANGET) */
-
-/* TANK KIRI BESAR */
+/* POSISI FIX */
 .tank-card {
   grid-column: 1;
   grid-row: 1 / 4;
 }
 
-/* TEMPERATURE */
-.dashboard .card:nth-child(2) {
-  grid-column: 2;
-  grid-row: 1;
-}
+.dashboard .card:nth-child(2) { grid-column: 2; grid-row: 1; }
+.dashboard .card:nth-child(3) { grid-column: 3; grid-row: 1; }
+.dashboard .card:nth-child(4) { grid-column: 4; grid-row: 1; }
+.dashboard .card:nth-child(5) { grid-column: 2; grid-row: 2; }
 
-/* HUMIDITY */
-.dashboard .card:nth-child(3) {
-  grid-column: 3;
-  grid-row: 1;
-}
-
-/* PUMP */
-.dashboard .card:nth-child(4) {
-  grid-column: 4;
-  grid-row: 1;
-}
-
-/* STATUS */
-.dashboard .card:nth-child(5) {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-/* CHART LEVEL */
-.dashboard .chart:nth-child(6) {
-  grid-column: 2;
-  grid-row: 3;
-}
-
-/* CHART TEMP */
-.dashboard .chart:nth-child(7) {
-  grid-column: 3;
-  grid-row: 3;
-}
-
-/* CHART HUM */
-.dashboard .chart:nth-child(8) {
-  grid-column: 4;
-  grid-row: 3;
-}
+.dashboard .chart:nth-child(6) { grid-column: 2; grid-row: 3; }
+.dashboard .chart:nth-child(7) { grid-column: 3; grid-row: 3; }
+.dashboard .chart:nth-child(8) { grid-column: 4; grid-row: 3; }
 
 /* TANK */
 .tank {
-  width: 120px;
-  height: 260px;
-  border: 3px solid white;
-  border-radius: 20px;
+  width: 100px;
+  height: 220px;
+  border: 2px solid white;
+  border-radius: 15px;
   margin: auto;
   position: relative;
   background: #2a2f38;
@@ -95,10 +63,9 @@ h2 {
   width: 100%;
   height: 50%;
   background: linear-gradient(#00c6ff, #0072ff);
-  transition: 0.5s;
 }
 
-/* GAUGE */
+/* GAUGE = SAMA BESAR DENGAN POMPA */
 .gaugeBox {
   display: flex;
   justify-content: center;
@@ -108,14 +75,14 @@ h2 {
 }
 
 .gaugeBox canvas {
-  width: 110px !important;
-  height: 110px !important;
+  width: 60px !important;
+  height: 60px !important;
 }
 
 .gaugeBox span {
   position: absolute;
+  font-size: 12px;
   font-weight: bold;
-  font-size: 16px;
 }
 
 /* POMPA */
@@ -132,7 +99,7 @@ h2 {
 }
 
 .spin {
-  animation: spin 0.8s linear infinite;
+  animation: spin 0.7s linear infinite;
 }
 
 @keyframes spin {
@@ -142,15 +109,16 @@ h2 {
 /* STATUS */
 #alarm {
   background: green;
-  padding: 5px;
+  padding: 4px;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 .danger {
   background: red !important;
 }
 
-/* CHART FULL */
+/* CHART BIAR MASUK 1 LAYAR */
 .chart {
   height: 100%;
 }
