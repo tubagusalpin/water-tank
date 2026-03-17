@@ -1,129 +1,53 @@
-body {
-  margin: 0;
-  background: #0f1115;
-  color: white;
-  font-family: Arial;
-  overflow: hidden; /* KUNCI BIAR GA SCROLL */
+/* ================= CSS (style.css) ================= */
+    overflow: hidden;
 }
 
-h2 {
-  text-align: center;
-  margin: 5px;
-}
-
-/* GRID FULL 1 LAYAR */
-.dashboard {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  grid-template-rows: 120px 120px auto;
-  gap: 8px;
-  height: calc(100vh - 40px);
-  padding: 8px;
-}
-
-/* CARD */
-.card {
-  background: #1a1d23;
-  border-radius: 10px;
-  padding: 6px;
-  text-align: center;
-  overflow: hidden;
-}
-
-/* POSISI FIX */
-.tank-card {
-  grid-column: 1;
-  grid-row: 1 / 4;
-}
-
-.dashboard .card:nth-child(2) { grid-column: 2; grid-row: 1; }
-.dashboard .card:nth-child(3) { grid-column: 3; grid-row: 1; }
-.dashboard .card:nth-child(4) { grid-column: 4; grid-row: 1; }
-.dashboard .card:nth-child(5) { grid-column: 2; grid-row: 2; }
-
-.dashboard .chart:nth-child(6) { grid-column: 2; grid-row: 3; }
-.dashboard .chart:nth-child(7) { grid-column: 3; grid-row: 3; }
-.dashboard .chart:nth-child(8) { grid-column: 4; grid-row: 3; }
-
-/* TANK */
-.tank {
-  width: 100px;
-  height: 220px;
-  border: 2px solid white;
-  border-radius: 15px;
-  margin: auto;
-  position: relative;
-  background: #2a2f38;
-  overflow: hidden;
-}
-
-#water {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(#00c6ff, #0072ff);
-}
-
-/* GAUGE = SAMA BESAR DENGAN POMPA */
-.gaugeBox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 100%;
-}
-
-.gaugeBox canvas {
-  width: 60px !important;
-  height: 60px !important;
-}
-
-.gaugeBox span {
-  position: absolute;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-/* POMPA */
-#fan {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: conic-gradient(
-    #ccc 0deg 120deg,
-    #555 120deg 240deg,
-    #ccc 240deg 360deg
-  );
-  margin: auto;
-}
-
-.spin {
-  animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-  100% { transform: rotate(360deg); }
+.water {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, #0284c7, #38bdf8);
 }
 
 /* STATUS */
-#alarm {
-  background: green;
-  padding: 4px;
-  border-radius: 5px;
-  font-size: 12px;
+.status-bar {
+    height: 12px;
+    background: #16a34a;
+    border-radius: 10px;
 }
 
-.danger {
-  background: red !important;
+/* PUMP ICON */
+.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: gray;
+    margin: 20px auto;
 }
 
-/* CHART BIAR MASUK 1 LAYAR */
+/* PUMP STATUS */
+.pump-box {
+    background: #164e63;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.pump-btn {
+    background: #e5e7eb;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* CHART */
 .chart {
-  height: 100%;
+    height: 200px;
+    background: #020617;
+    border-radius: 10px;
 }
 
-canvas {
-  width: 100% !important;
-  height: 100% !important;
-}
+/* BARIS BAWAH POSISI (HANYA 3 ITEM) */
+.chart-card:nth-child(6) { grid-column: 1 / 2; }
+.chart-card:nth-child(7) { grid-column: 2 / 3; }
+.chart-card:nth-child(8) { grid-column: 3 / 4; }
