@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SCADA Tank</title>
+  <title>SCADA Tank FINAL</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -21,8 +21,8 @@
     <p id="levelText">50%</p>
   </div>
 
-  <!-- ATAS -->
-  <div class="card small">
+  <!-- GAUGE BESAR -->
+  <div class="card gauge-big">
     <h4>Temperature</h4>
     <div class="gaugeBox">
       <canvas id="gaugeTemp"></canvas>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="card small">
+  <div class="card gauge-big">
     <h4>Humidity</h4>
     <div class="gaugeBox">
       <canvas id="gaugeHum"></canvas>
@@ -38,25 +38,17 @@
     </div>
   </div>
 
-  <div class="card small">
+  <!-- POMPA -->
+  <div class="card">
     <h4>Pump</h4>
     <div id="fan"></div>
     <p id="pumpStatus">OFF</p>
   </div>
 
-  <div class="card small">
+  <!-- STATUS -->
+  <div class="card">
     <h4>Status</h4>
     <div id="alarm">NORMAL</div>
-  </div>
-
-  <div class="card small">
-    <h4>Volume</h4>
-    <p id="volume">0 L</p>
-  </div>
-
-  <div class="card small">
-    <h4>Distance</h4>
-    <p id="distance">0 cm</p>
   </div>
 
   <!-- GRAFIK -->
