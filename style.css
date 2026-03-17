@@ -9,11 +9,11 @@ h2 {
   text-align: center;
 }
 
-/* GRID RAPI */
+/* GRID FIX FULL */
 .dashboard {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  grid-template-rows: 120px 120px 1fr;
+  grid-template-rows: 150px 150px 1fr;
   gap: 10px;
   height: calc(100vh - 60px);
   padding: 10px;
@@ -34,7 +34,7 @@ h2 {
 
 .tank {
   width: 120px;
-  height: 250px;
+  height: 260px;
   border: 3px solid white;
   border-radius: 20px;
   margin: auto;
@@ -52,42 +52,50 @@ h2 {
   transition: 0.5s;
 }
 
-/* GAUGE CENTER FIX */
+/* GAUGE BESAR */
+.gauge-big {
+  height: 150px;
+}
+
 .gaugeBox {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
-  height: 100px;
+  height: 100%;
 }
 
 .gaugeBox canvas {
-  width: 90px !important;
-  height: 90px !important;
+  width: 120px !important;
+  height: 120px !important;
 }
 
 .gaugeBox span {
   position: absolute;
+  font-size: 16px;
   font-weight: bold;
 }
 
-/* POMPA INDUSTRIAL */
+/* POMPA ARAH MATA ANGIN */
 #fan {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
+  margin: auto;
   border-radius: 50%;
   background: conic-gradient(
-    #ccc 0deg 90deg,
-    #555 90deg 180deg,
-    #ccc 180deg 270deg,
-    #555 270deg 360deg
+    #fff 0deg 45deg,
+    transparent 45deg 90deg,
+    #fff 90deg 135deg,
+    transparent 135deg 180deg,
+    #fff 180deg 225deg,
+    transparent 225deg 270deg,
+    #fff 270deg 315deg,
+    transparent 315deg 360deg
   );
-  margin: auto;
 }
 
 .spin {
-  animation: spin 0.7s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {
@@ -105,9 +113,9 @@ h2 {
   background: red !important;
 }
 
-/* CHART PAS */
+/* CHART FULL KE BAWAH */
 .chart {
-  height: 220px;
+  height: 100%;
 }
 
 canvas {
