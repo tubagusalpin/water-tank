@@ -1,41 +1,62 @@
-<!-- ================= HTML (index.html) ================= -->
+<!-- ================= index.html ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SCADA Monitoring Tangki Air</title>
+<title>Water Tank Dashboard</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-<h1>SCADA MONITORING TANGKI AIR</h1>
+<div class="header">Water Tank</div>
 
-<div class="container">
+<div class="dashboard">
 
-    <!-- WATER LEVEL BESAR -->
-    <div class="card water-card">
-        <h3>Water Level</h3>
-        <div class="tank">
-            <div class="water" id="water"></div>
-        </div>
-        <p id="levelText">50%</p>
+    <!-- TOP CARDS -->
+    <div class="card big">
+        <h4>Water Volume</h4>
+        <div class="circle">1558<br><span>Liter</span></div>
     </div>
 
-    <!-- ATAS KANAN -->
-    <div class="card small"><h3>Temperature</h3><p id="temp">0°C</p></div>
-    <div class="card small"><h3>Humidity</h3><p id="hum">0%</p></div>
-    <div class="card small"><h3>Pump</h3><p id="pumpText">OFF</p></div>
+    <div class="card">
+        <h4>Water Level</h4>
+        <div class="vertical-bar"></div>
+        <p>75 cm</p>
+    </div>
 
-    <div class="card small"><h3>Status</h3><span class="badge" id="status">NORMAL</span></div>
-    <div class="card small"><h3>Volume</h3><p id="volume">0 L</p></div>
-    <div class="card small"><h3>Distance</h3><p id="distance">0 cm</p></div>
+    <div class="card">
+        <h4>Distance</h4>
+        <div class="vertical-bar red"></div>
+        <p>50 cm</p>
+    </div>
 
-    <!-- BAWAH (GRAFIK FULL ISI) -->
-    <div class="card chart"><canvas id="chartLevel"></canvas></div>
-    <div class="card chart"><canvas id="chartTemp"></canvas></div>
-    <div class="card chart"><canvas id="chartHum"></canvas></div>
+    <div class="card small">
+        <h4>Temperature</h4>
+        <canvas id="tempGauge"></canvas>
+    </div>
+
+    <div class="card small">
+        <h4>Humidity</h4>
+        <canvas id="humGauge"></canvas>
+    </div>
+
+    <div class="card small">
+        <h4>Battery</h4>
+        <canvas id="batGauge"></canvas>
+    </div>
+
+    <div class="card small">
+        <h4>WiFi</h4>
+        <canvas id="wifiGauge"></canvas>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="card chart wide"><canvas id="chart1"></canvas></div>
+    <div class="card chart wide"><canvas id="chart2"></canvas></div>
+    <div class="card chart wide"><canvas id="chart3"></canvas></div>
+    <div class="card chart wide"><canvas id="chart4"></canvas></div>
 
 </div>
 
