@@ -1,0 +1,64 @@
+body {
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+}
+
+.top {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* TANK */
+.tank {
+  width: 150px;
+  height: 300px;
+  border: 3px solid white;
+  border-radius: 20px;
+  position: relative;
+  background: #333;
+}
+
+#water {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(#00bfff,#0077be);
+  animation: wave 3s infinite linear;
+}
+
+/* animasi gelombang */
+@keyframes wave {
+  0% { background-position: 0 0; }
+  100% { background-position: 200px 0; }
+}
+
+/* POMPA */
+#fan {
+  width: 80px;
+  height: 80px;
+  border: 5px solid white;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* ALARM */
+#alarm {
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.danger {
+  background: red;
+}
