@@ -6,12 +6,12 @@ let suhu = 28;
 let hum = 60;
 let pump = 0;
 
-// GAUGE
+/* GAUGE */
 let gaugeTemp = new Chart(document.getElementById("gaugeTemp"), {
   type: "doughnut",
   data: {
     datasets: [{
-      data: [28, 22],
+      data: [28, 72],
       backgroundColor: ["#00c6ff", "#333"],
       borderWidth: 0
     }]
@@ -37,7 +37,7 @@ let gaugeHum = new Chart(document.getElementById("gaugeHum"), {
   }
 });
 
-// CHART FUNCTION
+/* CHART */
 function makeChart(id, color) {
   return new Chart(document.getElementById(id), {
     type: "line",
@@ -46,7 +46,6 @@ function makeChart(id, color) {
       datasets: [{
         data: [],
         borderColor: color,
-        fill: false,
         tension: 0.3
       }]
     },
@@ -71,12 +70,13 @@ let chartLevel = makeChart("chartLevel", "cyan");
 let chartTemp = makeChart("chartTemp", "orange");
 let chartHum = makeChart("chartHum", "lime");
 
-// UPDATE UI
+/* UPDATE */
 function updateUI() {
 
   document.getElementById("water").style.height = level + "%";
   document.getElementById("levelText").innerText = Math.round(level) + "%";
 
+  // LOGIKA POMPA
   if (level < 30) pump = 1;
   if (level > 80) pump = 0;
 
@@ -88,6 +88,7 @@ function updateUI() {
     pumpStatus.innerText = "OFF";
   }
 
+  // STATUS
   let alarm = document.getElementById("alarm");
   if (level < 20) {
     alarm.innerText = "BAHAYA";
@@ -97,13 +98,10 @@ function updateUI() {
     alarm.classList.remove("danger");
   }
 
-  document.getElementById("volume").innerText = Math.round(level * 20) + " L";
-  document.getElementById("distance").innerText = Math.round(100 - level) + " cm";
-
   document.getElementById("tempText").innerText = Math.round(suhu) + "°C";
   document.getElementById("humText").innerText = Math.round(hum) + "%";
 
-  gaugeTemp.data.datasets[0].data = [suhu, 50 - suhu];
+  gaugeTemp.data.datasets[0].data = [suhu, 100 - suhu];
   gaugeHum.data.datasets[0].data = [hum, 100 - hum];
   gaugeTemp.update();
   gaugeHum.update();
@@ -128,7 +126,7 @@ function updateUI() {
   chartHum.update();
 }
 
-// SIMULASI
+/* SIMULASI */
 setInterval(() => {
   level += Math.random()*10 - 5;
   suhu += Math.random()*2 - 1;
