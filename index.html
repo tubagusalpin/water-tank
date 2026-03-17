@@ -1,74 +1,70 @@
+<!-- ================= HTML (index.html) ================= -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SCADA Tank FINAL</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SCADA Monitoring Tangki Air</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>SCADA MONITORING TANGKI AIR</h2>
+<h1>SCADA MONITORING TANGKI AIR</h1>
 
-<div class="dashboard">
+<div class="container">
 
-  <!-- TANK -->
-  <div class="tank-card card">
-    <h4>Water Level</h4>
-    <div class="tank">
-      <div id="water"></div>
+    <!-- ROW ATAS (5 ITEM SESUAI GAMBAR) -->
+
+    <div class="card">
+        <h3>Water Level</h3>
+        <div class="tank">
+            <div class="water" id="water"></div>
+        </div>
+        <p id="levelText">60%</p>
     </div>
-    <p id="levelText">50%</p>
-  </div>
 
-  <!-- GAUGE BESAR -->
-  <div class="card gauge-big">
-    <h4>Temperature</h4>
-    <div class="gaugeBox">
-      <canvas id="gaugeTemp"></canvas>
-      <span id="tempText">0°C</span>
+    <div class="card">
+        <h3>Temperature</h3>
+        <p id="temp">30°C</p>
+        <div class="status-bar"></div>
     </div>
-  </div>
 
-  <div class="card gauge-big">
-    <h4>Humidity</h4>
-    <div class="gaugeBox">
-      <canvas id="gaugeHum"></canvas>
-      <span id="humText">0%</span>
+    <div class="card">
+        <h3>Humidity</h3>
+        <p id="hum">70%</p>
+        <div class="status-bar"></div>
     </div>
-  </div>
 
-  <!-- POMPA -->
-  <div class="card">
-    <h4>Pump</h4>
-    <div id="fan"></div>
-    <p id="pumpStatus">OFF</p>
-  </div>
+    <div class="card">
+        <h3>Pump</h3>
+        <div class="circle"></div>
+    </div>
 
-  <!-- STATUS -->
-  <div class="card">
-    <h4>Status</h4>
-    <div id="alarm">NORMAL</div>
-  </div>
+    <div class="card">
+        <h3>Status Pump</h3>
+        <div class="pump-box">
+            <button class="pump-btn" id="pumpBtn" onclick="togglePump()">Status</button>
+        </div>
+    </div>
 
-  <!-- GRAFIK -->
-  <div class="card chart">
-    <h4>Water Level</h4>
-    <canvas id="chartLevel"></canvas>
-  </div>
+    <!-- ROW BAWAH (3 GRAFIK) -->
 
-  <div class="card chart">
-    <h4>Temperature</h4>
-    <canvas id="chartTemp"></canvas>
-  </div>
+    <div class="card chart-card">
+        <h3>Water Level</h3>
+        <div class="chart"></div>
+    </div>
 
-  <div class="card chart">
-    <h4>Humidity</h4>
-    <canvas id="chartHum"></canvas>
-  </div>
+    <div class="card chart-card">
+        <h3>Temperature</h3>
+        <div class="chart"></div>
+    </div>
+
+    <div class="card chart-card">
+        <h3>Humidity</h3>
+        <div class="chart"></div>
+    </div>
 
 </div>
 
 <script src="script.js"></script>
-</body>
 </html>
