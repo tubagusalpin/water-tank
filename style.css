@@ -1,4 +1,22 @@
 /* ================= CSS (style.css) ================= */
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.water-card {
+    grid-row: span 3;
+}
+
+.tank {
+    width: 100px;
+    height: 220px;
+    border: 2px solid #cbd5f5;
+    border-radius: 15px;
+    margin: auto;
+    position: relative;
     overflow: hidden;
 }
 
@@ -6,48 +24,31 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 60%;
-    background: linear-gradient(to top, #0284c7, #38bdf8);
+    background: linear-gradient(to top, #0ea5e9, #38bdf8);
+    transition: 0.5s;
 }
 
-/* STATUS */
-.status-bar {
-    height: 12px;
-    background: #16a34a;
-    border-radius: 10px;
-}
-
-/* PUMP ICON */
-.circle {
-    width: 60px;
-    height: 60px;
+.indicator {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background: gray;
-    margin: 20px auto;
+    margin: auto;
 }
 
-/* PUMP STATUS */
-.pump-box {
-    background: #164e63;
-    padding: 15px;
-    border-radius: 10px;
+.off { background: red; }
+.on { background: lime; }
+
+.badge {
+    background: green;
+    padding: 5px 12px;
+    border-radius: 6px;
 }
 
-.pump-btn {
-    background: #e5e7eb;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-}
-
-/* CHART */
 .chart {
-    height: 200px;
-    background: #020617;
-    border-radius: 10px;
+    grid-column: span 1;
 }
 
-/* BARIS BAWAH POSISI (HANYA 3 ITEM) */
-.chart-card:nth-child(6) { grid-column: 1 / 2; }
-.chart-card:nth-child(7) { grid-column: 2 / 3; }
-.chart-card:nth-child(8) { grid-column: 3 / 4; }
+/* posisi grafik */
+.chart:nth-child(8){grid-column:2}
+.chart:nth-child(9){grid-column:3}
+.chart:nth-child(10){grid-column:4}
