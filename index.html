@@ -1,62 +1,76 @@
-<!-- ================= index.html ================= -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Water Tank Dashboard</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>SCADA Tank</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
-<div class="header">Water Tank</div>
+<h2>SCADA MONITORING TANGKI AIR</h2>
 
 <div class="dashboard">
 
-    <!-- TOP CARDS -->
-    <div class="card big">
-        <h4>Water Volume</h4>
-        <div class="circle">1558<br><span>Liter</span></div>
+  <!-- TANK -->
+  <div class="card tank-card">
+    <h4>Water Level</h4>
+    <div class="tank">
+      <div id="water"></div>
     </div>
+    <p id="levelText">50%</p>
+  </div>
 
-    <div class="card">
-        <h4>Water Level</h4>
-        <div class="vertical-bar"></div>
-        <p>75 cm</p>
-    </div>
+  <!-- GAUGE -->
+  <div class="card">
+    <h4>Temperature</h4>
+    <canvas id="gaugeTemp"></canvas>
+  </div>
 
-    <div class="card">
-        <h4>Distance</h4>
-        <div class="vertical-bar red"></div>
-        <p>50 cm</p>
-    </div>
+  <div class="card">
+    <h4>Humidity</h4>
+    <canvas id="gaugeHum"></canvas>
+  </div>
 
-    <div class="card small">
-        <h4>Temperature</h4>
-        <canvas id="tempGauge"></canvas>
-    </div>
+  <!-- PUMP -->
+  <div class="card">
+    <h4>Pump</h4>
+    <div id="fan"></div>
+    <p id="pumpStatus">OFF</p>
+  </div>
 
-    <div class="card small">
-        <h4>Humidity</h4>
-        <canvas id="humGauge"></canvas>
-    </div>
+  <!-- STATUS -->
+  <div class="card">
+    <h4>Status</h4>
+    <div id="alarm">NORMAL</div>
+  </div>
 
-    <div class="card small">
-        <h4>Battery</h4>
-        <canvas id="batGauge"></canvas>
-    </div>
+  <!-- PARAMETER TAMBAHAN -->
+  <div class="card">
+    <h4>Volume</h4>
+    <p id="volume">0 L</p>
+  </div>
 
-    <div class="card small">
-        <h4>WiFi</h4>
-        <canvas id="wifiGauge"></canvas>
-    </div>
+  <div class="card">
+    <h4>Distance</h4>
+    <p id="distance">0 cm</p>
+  </div>
 
-    <!-- CHARTS -->
-    <div class="card chart wide"><canvas id="chart1"></canvas></div>
-    <div class="card chart wide"><canvas id="chart2"></canvas></div>
-    <div class="card chart wide"><canvas id="chart3"></canvas></div>
-    <div class="card chart wide"><canvas id="chart4"></canvas></div>
+  <!-- 3 GRAFIK -->
+  <div class="card chart-card">
+    <h4>Water Level</h4>
+    <canvas id="chartLevel"></canvas>
+  </div>
+
+  <div class="card chart-card">
+    <h4>Temperature</h4>
+    <canvas id="chartTemp"></canvas>
+  </div>
+
+  <div class="card chart-card">
+    <h4>Humidity</h4>
+    <canvas id="chartHum"></canvas>
+  </div>
 
 </div>
 
