@@ -219,6 +219,13 @@ canvas {
   text-align: center;
 }
 
+.gaugeBox p {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .gauge-card canvas {
   width: 150px !important;
   height: 150px !important;
