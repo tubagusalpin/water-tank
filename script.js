@@ -9,13 +9,23 @@ let distance = 0;
 // GAUGE
 let gaugeTemp = new Chart(document.getElementById("gaugeTemp"), {
   type: "doughnut",
-  data: { datasets: [{ data: [0, 50] }] },
+  data: {
+    datasets: [{
+      data: [0, 50],
+      backgroundColor: ["#3aa0d8", "#2a2f38"] // biru + background
+    }]
+  },
   options: { cutout: "70%" }
 });
 
 let gaugeHum = new Chart(document.getElementById("gaugeHum"), {
   type: "doughnut",
-  data: { datasets: [{ data: [0, 100] }] },
+  data: {
+    datasets: [{
+      data: [0, 100],
+      backgroundColor: ["#00ff88", "#2a2f38"] // hijau + background
+    }]
+  },
   options: { cutout: "70%" }
 });
 
@@ -27,7 +37,7 @@ let chartLevel = new Chart(document.getElementById("chartLevel"), {
     datasets: [{
       label: "Level",
       data: [],
-      borderColor: "cyan", // warna asli (biru/cyan)
+      borderColor: "cyan",
       tension: 0.3
     }]
   },
@@ -67,7 +77,7 @@ let chartTemp = new Chart(document.getElementById("chartTemp"), {
     datasets: [{
       label: "Temp",
       data: [],
-      borderColor: "orange", // balik ke warna awal
+      borderColor: "orange",
       tension: 0.3
     }]
   },
@@ -107,7 +117,7 @@ let chartHum = new Chart(document.getElementById("chartHum"), {
     datasets: [{
       label: "Hum",
       data: [],
-      borderColor: "lime", // balik ke warna awal
+      borderColor: "lime",
       tension: 0.3
     }]
   },
@@ -142,11 +152,9 @@ let chartHum = new Chart(document.getElementById("chartHum"), {
 // UPDATE UI
 function updateUI() {
 
-  // WATER LEVEL
   document.getElementById("water").style.height = level + "%";
   document.getElementById("levelText").innerText = Math.round(level) + "%";
 
-  // LOGIC PUMP
   if (level < 30) pump = 1;
   if (level > 80) pump = 0;
 
@@ -154,16 +162,19 @@ function updateUI() {
   let pumpStatus = document.getElementById("pumpStatus");
 
   if (pump) {
-    fan.classList.remove("off");
-    fan.classList.add("on");
-    pumpStatus.innerText = "ON";
-  } else {
-    fan.classList.remove("on");
-    fan.classList.add("off");
-    pumpStatus.innerText = "OFF";
-  }
+  fan.classList.remove("off");
+  fan.classList.add("on");
 
-  // ALARM
+  pumpStatus.innerText = "ON";
+  pumpStatus.classList.remove("pump-off");
+} else {
+  fan.classList.remove("on");
+  fan.classList.add("off");
+
+  pumpStatus.innerText = "OFF";
+  pumpStatus.classList.add("pump-off");
+}
+
   let alarm = document.getElementById("alarm");
   if (level < 20) {
     alarm.innerText = "AIR HAMPIR HABIS!";
@@ -173,14 +184,12 @@ function updateUI() {
     alarm.classList.remove("danger");
   }
 
-  // VOLUME & DISTANCE
   volume = Math.round(level * 20);
   distance = Math.round(100 - level);
 
   document.getElementById("volume").innerText = volume + " L";
   document.getElementById("distance").innerText = distance + " cm";
 
-  // UPDATE CHART
   chartLevel.data.labels.push("");
   chartTemp.data.labels.push("");
   chartHum.data.labels.push("");
@@ -203,14 +212,16 @@ function updateUI() {
   chartTemp.update();
   chartHum.update();
 
-  // UPDATE GAUGE
+  // UPDATE GAUGE (warna tetap 1 tone)
   gaugeTemp.data.datasets[0].data = [suhu, 50 - suhu];
+  gaugeTemp.data.datasets[0].backgroundColor = ["#3aa0d8", "#2a2f38"];
+
   gaugeHum.data.datasets[0].data = [hum, 100 - hum];
+  gaugeHum.data.datasets[0].backgroundColor = ["#00ff88", "#2a2f38"];
 
   gaugeTemp.update();
   gaugeHum.update();
 
-  // TEXT GAUGE
   document.getElementById("tempText").innerText = Math.round(suhu) + "°C";
   document.getElementById("humText").innerText = Math.round(hum) + "%";
 }
