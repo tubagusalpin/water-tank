@@ -44,7 +44,7 @@ h2 {
 }
 
 .pump-card {
-  height: 150px;
+  height: 180px;
 }
 
 .status-card {
@@ -53,6 +53,11 @@ h2 {
 
 .info-card {
   height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .chart-card {
