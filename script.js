@@ -80,7 +80,10 @@ let chartTemp = new Chart(document.getElementById("chartTemp"), {
         grid: { color: "rgba(255,255,255,0.1)" }
       },
       y: {
+        min: 0,
+        max: 100,
         ticks: {
+          stepSize: 25,
           color: "white"
         },
         grid: {
@@ -117,7 +120,10 @@ let chartHum = new Chart(document.getElementById("chartHum"), {
         grid: { color: "rgba(255,255,255,0.1)" }
       },
       y: {
+        min: 0,
+        max: 100,
         ticks: {
+          stepSize: 25,
           color: "white"
         },
         grid: {
