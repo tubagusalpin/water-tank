@@ -3,9 +3,6 @@ let suhu = 28;
 let hum = 60;
 let pump = 0;
 
-let volume = 0;
-let distance = 0;
-
 // GAUGE
 let gaugeTemp = new Chart(document.getElementById("gaugeTemp"), {
   type: "doughnut",
@@ -48,6 +45,9 @@ function updateUI() {
   if (level < 30) pump = 1;
   if (level > 80) pump = 0;
 
+  let fan = document.getElementById("fan");
+  let pumpStatus = document.getElementById("pumpStatus");
+
   if (pump) {
     fan.classList.add("spin");
     pumpStatus.innerText = "ON";
@@ -65,13 +65,6 @@ function updateUI() {
     alarm.innerText = "NORMAL";
     alarm.classList.remove("danger");
   }
-
-  // PARAMETER TAMBAHAN
-  volume = Math.round(level * 20);
-  distance = Math.round(100 - level);
-
-  document.getElementById("volume").innerText = volume + " L";
-  document.getElementById("distance").innerText = distance + " cm";
 
   // UPDATE CHART
   chartLevel.data.labels.push("");
