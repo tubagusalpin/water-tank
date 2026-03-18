@@ -230,3 +230,14 @@ canvas {
   width: 150px !important;
   height: 150px !important;
 }
+
+#pumpStatus {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: green;
+  color: white;
+}
+
+.pump-off {
+  background: red !important;
+}
