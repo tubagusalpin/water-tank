@@ -58,13 +58,14 @@ h2 {
   height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* judul tetap di atas */
-  align-items: center;
+  justify-content: flex-start; /* judul di atas */
+  align-items: stretch; /* full lebar */
 }
 
 .chart-card canvas {
-  margin-top: 10px;
-  max-height: 150px !important;
+  width: 100% !important;
+  height: 160px !important;
+  margin-top: 5px;
 }
 
 /* TANK (TIDAK DIUBAH) */
@@ -207,14 +208,6 @@ canvas {
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.chart-card canvas {
-  max-height: 160px !important;
-}
-
-.chart-card {
-  justify-content: center;
 }
 
 .chart-card h4 {
