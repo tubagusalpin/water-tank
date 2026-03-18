@@ -45,10 +45,18 @@ h2 {
 
 .pump-card {
   height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .status-card {
   height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .info-card {
@@ -118,28 +126,42 @@ canvas {
 }
 
 /* PUMP */
+/* FAN CONTAINER */
 #fan {
-  width: 80px;
-  height: 20px;
-  background: white;
-  border-radius: 50px;
+  width: 60px;
+  height: 60px;
+  position: relative;
   margin: 10px auto;
 }
 
-#fan.on {
-  background: #00ff88;
-  box-shadow: 0 0 8px #00ff88;
-}
-
-#fan.off {
+/* BLADE (lancip) */
+.blade {
+  position: absolute;
+  width: 12px;
+  height: 30px;
   background: #ccc;
+  left: 50%;
+  top: 50%;
+  transform-origin: bottom center;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
 
-#pumpStatus {
-  text-align: center;
+/* posisi 4 arah (mata angin) */
+.blade:nth-child(1) { transform: translate(-50%, -100%) rotate(0deg); }
+.blade:nth-child(2) { transform: translate(-50%, -100%) rotate(90deg); }
+.blade:nth-child(3) { transform: translate(-50%, -100%) rotate(180deg); }
+.blade:nth-child(4) { transform: translate(-50%, -100%) rotate(270deg); }
+
+/* WARNA ON/OFF */
+#fan.on .blade {
+  background: #00ff88;
 }
 
-.spin {
+#fan.off .blade {
+  background: #555;
+}
+
+#fan.on {
   animation: spin 1s linear infinite;
 }
 
