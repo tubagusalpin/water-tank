@@ -27,19 +27,39 @@ let chartLevel = new Chart(document.getElementById("chartLevel"), {
     datasets: [{
       label: "Level",
       data: [],
-      borderColor: "cyan",
+      borderColor: "#ffffff",
+      backgroundColor: "rgba(255,255,255,0.2)",
       tension: 0.3
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: "#ffffff"
+        }
+      }
+    },
     scales: {
       y: {
         min: 0,
         max: 100,
         ticks: {
-          stepSize: 10
+          stepSize: 25,
+          color: "#ffffff"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.2)"
+        }
+      },
+      x: {
+        ticks: {
+          color: "#ffffff"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.2)"
         }
       }
     }
@@ -54,13 +74,42 @@ let chartTemp = new Chart(document.getElementById("chartTemp"), {
     datasets: [{
       label: "Temp",
       data: [],
-      borderColor: "orange",
+      borderColor: "#ffffff",
+      backgroundColor: "rgba(255,255,255,0.2)",
       tension: 0.3
     }]
   },
   options: {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: "#ffffff"
+        }
+      }
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+        ticks: {
+          stepSize: 25,
+          color: "#ffffff"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.2)"
+        }
+      },
+      x: {
+        ticks: {
+          color: "#ffffff"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.2)"
+        }
+      }
+    }
   }
 });
 
@@ -72,13 +121,42 @@ let chartHum = new Chart(document.getElementById("chartHum"), {
     datasets: [{
       label: "Hum",
       data: [],
-      borderColor: "lime",
+      borderColor: "#ffffff",
+      backgroundColor: "rgba(255,255,255,0.2)",
       tension: 0.3
     }]
   },
   options: {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: "#ffffff"
+        }
+      }
+    },
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+        ticks: {
+          stepSize: 25,
+          color: "#ffffff"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.2)"
+        }
+      },
+      x: {
+        ticks: {
+          color: "#ffffff"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.2)"
+        }
+      }
+    }
   }
 });
 
@@ -97,14 +175,14 @@ function updateUI() {
   let pumpStatus = document.getElementById("pumpStatus");
 
   if (pump) {
-  fan.classList.remove("off");
-  fan.classList.add("on");
-  pumpStatus.innerText = "ON";
-} else {
-  fan.classList.remove("on");
-  fan.classList.add("off");
-  pumpStatus.innerText = "OFF";
-}
+    fan.classList.remove("off");
+    fan.classList.add("on");
+    pumpStatus.innerText = "ON";
+  } else {
+    fan.classList.remove("on");
+    fan.classList.add("off");
+    pumpStatus.innerText = "OFF";
+  }
 
   // ALARM
   let alarm = document.getElementById("alarm");
