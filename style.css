@@ -56,6 +56,15 @@ h2 {
 
 .chart-card {
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* judul tetap di atas */
+  align-items: center;
+}
+
+.chart-card canvas {
+  margin-top: 10px;
+  max-height: 150px !important;
 }
 
 /* TANK (TIDAK DIUBAH) */
@@ -93,7 +102,6 @@ h2 {
 /* GAUGE */
 canvas {
   max-width: 100% !important;
-  max-height: 120px !important;
   display: block;
   margin: auto;
 }
@@ -199,6 +207,18 @@ canvas {
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.chart-card canvas {
+  max-height: 160px !important;
+}
+
+.chart-card {
+  justify-content: center;
+}
+
+.chart-card h4 {
+  margin-bottom: 5px;
 }
 
 .card p {
