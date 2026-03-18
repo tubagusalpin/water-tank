@@ -27,40 +27,33 @@ let chartLevel = new Chart(document.getElementById("chartLevel"), {
     datasets: [{
       label: "Level",
       data: [],
-      borderColor: "#ffffff",
-      backgroundColor: "rgba(255,255,255,0.2)",
+      borderColor: "cyan", // warna asli (biru/cyan)
       tension: 0.3
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          color: "#ffffff"
-        }
-      }
-    },
     scales: {
+      x: {
+        ticks: { color: "white" },
+        grid: { color: "rgba(255,255,255,0.1)" }
+      },
       y: {
         min: 0,
         max: 100,
         ticks: {
           stepSize: 25,
-          color: "#ffffff"
+          color: "white"
         },
         grid: {
-          color: "rgba(255,255,255,0.2)"
+          color: "rgba(255,255,255,0.1)"
         }
-      },
-      x: {
-        ticks: {
-          color: "#ffffff"
-        },
-        grid: {
-          color: "rgba(255,255,255,0.2)"
-        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: { color: "white" }
       }
     }
   }
@@ -74,40 +67,30 @@ let chartTemp = new Chart(document.getElementById("chartTemp"), {
     datasets: [{
       label: "Temp",
       data: [],
-      borderColor: "#ffffff",
-      backgroundColor: "rgba(255,255,255,0.2)",
+      borderColor: "orange", // balik ke warna awal
       tension: 0.3
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          color: "#ffffff"
+    scales: {
+      x: {
+        ticks: { color: "white" },
+        grid: { color: "rgba(255,255,255,0.1)" }
+      },
+      y: {
+        ticks: {
+          color: "white"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.1)"
         }
       }
     },
-    scales: {
-      y: {
-        min: 0,
-        max: 100,
-        ticks: {
-          stepSize: 25,
-          color: "#ffffff"
-        },
-        grid: {
-          color: "rgba(255,255,255,0.2)"
-        }
-      },
-      x: {
-        ticks: {
-          color: "#ffffff"
-        },
-        grid: {
-          color: "rgba(255,255,255,0.2)"
-        }
+    plugins: {
+      legend: {
+        labels: { color: "white" }
       }
     }
   }
@@ -121,40 +104,30 @@ let chartHum = new Chart(document.getElementById("chartHum"), {
     datasets: [{
       label: "Hum",
       data: [],
-      borderColor: "#ffffff",
-      backgroundColor: "rgba(255,255,255,0.2)",
+      borderColor: "lime", // balik ke warna awal
       tension: 0.3
     }]
   },
   options: {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          color: "#ffffff"
+    scales: {
+      x: {
+        ticks: { color: "white" },
+        grid: { color: "rgba(255,255,255,0.1)" }
+      },
+      y: {
+        ticks: {
+          color: "white"
+        },
+        grid: {
+          color: "rgba(255,255,255,0.1)"
         }
       }
     },
-    scales: {
-      y: {
-        min: 0,
-        max: 100,
-        ticks: {
-          stepSize: 25,
-          color: "#ffffff"
-        },
-        grid: {
-          color: "rgba(255,255,255,0.2)"
-        }
-      },
-      x: {
-        ticks: {
-          color: "#ffffff"
-        },
-        grid: {
-          color: "rgba(255,255,255,0.2)"
-        }
+    plugins: {
+      legend: {
+        labels: { color: "white" }
       }
     }
   }
