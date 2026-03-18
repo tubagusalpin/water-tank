@@ -16,11 +16,12 @@ h2 {
 .dashboard {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  grid-template-rows: 120px 120px 120px 1fr;
-  gap: 50px;
+  grid-template-rows: repeat(3, minmax(120px, auto)) 1fr;
+  gap: 20px;
   height: calc(100vh - 60px);
-  padding: 25px;
+  padding: 15px;
   box-sizing: border-box;
+  align-items: start;
 }
 
 /* CARD GLOBAL */
