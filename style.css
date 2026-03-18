@@ -218,3 +218,8 @@ canvas {
   width: 100%;
   text-align: center;
 }
+
+.gauge-card canvas {
+  width: 150px !important;
+  height: 150px !important;
+}
