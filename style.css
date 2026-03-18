@@ -17,7 +17,7 @@ h2 {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr 1fr;
   grid-template-rows: repeat(3, minmax(120px, auto)) 1fr;
-  gap: 20px;
+  gap: 50px;
   height: calc(100vh - 60px);
   padding: 25px;
   box-sizing: border-box;
