@@ -12,7 +12,7 @@
 
 <div class="dashboard">
 
-  <!-- TANK -->
+  <!-- TANK (TIDAK DIUBAH) -->
   <div class="card tank-card">
     <h4>Water Level</h4>
     <div class="tank">
@@ -22,47 +22,47 @@
   </div>
 
   <!-- GAUGE -->
-  <div class="card">
-  <h4>Temperature</h4>
-  <div class="gaugeBox">
-    <canvas id="gaugeTemp"></canvas>
-    <p id="tempText">0°C</p>
+  <div class="card gauge-card">
+    <h4>Temperature</h4>
+    <div class="gaugeBox">
+      <canvas id="gaugeTemp"></canvas>
+      <p id="tempText">0°C</p>
+    </div>
   </div>
-</div>
 
-<div class="card">
-  <h4>Humidity</h4>
-  <div class="gaugeBox">
-    <canvas id="gaugeHum"></canvas>
-    <p id="humText">0%</p>
+  <div class="card gauge-card">
+    <h4>Humidity</h4>
+    <div class="gaugeBox">
+      <canvas id="gaugeHum"></canvas>
+      <p id="humText">0%</p>
+    </div>
   </div>
-</div>
 
   <!-- PUMP -->
-  <div class="card">
+  <div class="card pump-card">
     <h4>Pump</h4>
     <div id="fan"></div>
     <p id="pumpStatus">OFF</p>
   </div>
 
   <!-- STATUS -->
-  <div class="card">
+  <div class="card status-card">
     <h4>Status</h4>
     <div id="alarm">NORMAL</div>
   </div>
 
-  <!-- PARAMETER TAMBAHAN -->
-  <div class="card">
+  <!-- PARAMETER -->
+  <div class="card info-card">
     <h4>Volume</h4>
     <p id="volume">0 L</p>
   </div>
 
-  <div class="card">
+  <div class="card info-card">
     <h4>Distance</h4>
     <p id="distance">0 cm</p>
   </div>
 
-  <!-- 3 GRAFIK -->
+  <!-- GRAFIK -->
   <div class="card chart-card">
     <h4>Water Level</h4>
     <canvas id="chartLevel"></canvas>
