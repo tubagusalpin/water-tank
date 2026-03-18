@@ -97,12 +97,14 @@ function updateUI() {
   let pumpStatus = document.getElementById("pumpStatus");
 
   if (pump) {
-    fan.classList.add("spin");
-    pumpStatus.innerText = "ON";
-  } else {
-    fan.classList.remove("spin");
-    pumpStatus.innerText = "OFF";
-  }
+  fan.classList.remove("off");
+  fan.classList.add("on");
+  pumpStatus.innerText = "ON";
+} else {
+  fan.classList.remove("on");
+  fan.classList.add("off");
+  pumpStatus.innerText = "OFF";
+}
 
   // ALARM
   let alarm = document.getElementById("alarm");
