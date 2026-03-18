@@ -3,41 +3,89 @@ let suhu = 28;
 let hum = 60;
 let pump = 0;
 
+let volume = 0;
+let distance = 0;
+
 // GAUGE
 let gaugeTemp = new Chart(document.getElementById("gaugeTemp"), {
   type: "doughnut",
-  data: { datasets: [{ data: [0, 50] }] }
+  data: { datasets: [{ data: [0, 50] }] },
+  options: { cutout: "70%" }
 });
 
 let gaugeHum = new Chart(document.getElementById("gaugeHum"), {
   type: "doughnut",
-  data: { datasets: [{ data: [0, 100] }] }
+  data: { datasets: [{ data: [0, 100] }] },
+  options: { cutout: "70%" }
 });
 
 // CHART LEVEL
 let chartLevel = new Chart(document.getElementById("chartLevel"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Level", data: [], borderColor: "cyan" }] },
-  options: { responsive: true, maintainAspectRatio: false }
+  data: {
+    labels: [],
+    datasets: [{
+      label: "Level",
+      data: [],
+      borderColor: "cyan",
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        min: 0,
+        max: 100,
+        ticks: {
+          stepSize: 10
+        }
+      }
+    }
+  }
 });
 
 // CHART TEMP
 let chartTemp = new Chart(document.getElementById("chartTemp"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Temp", data: [], borderColor: "orange" }] },
-  options: { responsive: true, maintainAspectRatio: false }
+  data: {
+    labels: [],
+    datasets: [{
+      label: "Temp",
+      data: [],
+      borderColor: "orange",
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false
+  }
 });
 
 // CHART HUM
 let chartHum = new Chart(document.getElementById("chartHum"), {
   type: "line",
-  data: { labels: [], datasets: [{ label: "Hum", data: [], borderColor: "lime" }] },
-  options: { responsive: true, maintainAspectRatio: false }
+  data: {
+    labels: [],
+    datasets: [{
+      label: "Hum",
+      data: [],
+      borderColor: "lime",
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false
+  }
 });
 
 // UPDATE UI
 function updateUI() {
 
+  // WATER LEVEL
   document.getElementById("water").style.height = level + "%";
   document.getElementById("levelText").innerText = Math.round(level) + "%";
 
@@ -65,6 +113,13 @@ function updateUI() {
     alarm.innerText = "NORMAL";
     alarm.classList.remove("danger");
   }
+
+  // VOLUME & DISTANCE
+  volume = Math.round(level * 20);
+  distance = Math.round(100 - level);
+
+  document.getElementById("volume").innerText = volume + " L";
+  document.getElementById("distance").innerText = distance + " cm";
 
   // UPDATE CHART
   chartLevel.data.labels.push("");
@@ -95,15 +150,21 @@ function updateUI() {
 
   gaugeTemp.update();
   gaugeHum.update();
+
+  // TEXT GAUGE
+  document.getElementById("tempText").innerText = Math.round(suhu) + "°C";
+  document.getElementById("humText").innerText = Math.round(hum) + "%";
 }
 
-// SIMULASI
+// SIMULASI DATA
 setInterval(() => {
-  level += Math.random()*10 - 5;
-  suhu += Math.random()*2 - 1;
-  hum += Math.random()*4 - 2;
+  level += Math.random() * 10 - 5;
+  suhu += Math.random() * 2 - 1;
+  hum += Math.random() * 4 - 2;
 
   level = Math.max(0, Math.min(100, level));
+  suhu = Math.max(0, Math.min(50, suhu));
+  hum = Math.max(0, Math.min(100, hum));
 
   updateUI();
 }, 2000);
