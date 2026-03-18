@@ -32,6 +32,9 @@ h2 {
 
   display: flex;
   flex-direction: column;
+
+  width: 100px;
+  height: 100px;
 }
 
 /* TANK */
@@ -114,13 +117,6 @@ canvas {
 
 
 /* ===== FIX GAUGE CENTER ===== */
-
-/* Card jangan pakai align-items center */
-.card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 
 /* Judul tetap normal */
 .card h4 {
